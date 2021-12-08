@@ -1,9 +1,9 @@
-*,
+/* *,
 *::after,
 ::before
 {
     box-sizing: border-box;
-}
+} */
 
 .container
 {
@@ -11,22 +11,96 @@
     margin: 0 auto;
     padding: 0 15px;
 }
-.pictures
+.picturs
 {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
 }
-.img
+img
 {
     width: 380px;
     height: 260px;
     margin: 20px 0;
     transition: 0.3s;
-    cursor: pointer;
+    /* cursor: pointer; */
 }
-.img:hover
+img:hover
 {
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.rmodal {}
+
+.rmodal.open .modal__overlay,
+.rmodal.open .modal__window
+{
+    opacity: 1;
+    z-index: 999;
+}
+.rmodal.hiden .modal__overlay,
+.rmodal.hiden .modal__window
+{
+    opacity: 1;
+    z-index: 999;
+}
+.rmodal.open .modal__window
+{
+    transform: scale(1, 1);
+}
+.rmodal.open .modal__overlay
+{
+    background: rgba(0,0,0,.5);
+}
+.rmodal.hiden .modal__window
+{
+    transform: scale(0, 0);
+}
+.rmodal.hiden .modal__overlay
+{
+    background: rgba(0,0,0,0);
+}
+.modal__window, .modal__overlay
+{
+    opacity: 0;
+    z-index: -1;
+}
+.modal__overlay
+{
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0);
+    transition: background .2s;
+}
+.modal__window
+{
+    width: 600px;
+    height: 500px;
+    border-radius: 10px;
+    background: #fff;
+    margin: 100px auto;
+    transform: scale(0, 0);
+    transition: transform .2s;
+}
+.modal__header
+{
+    padding: 5px 10px;
+    display: flex;
+    justify-content: end;
+    border-bottom: 1px solid #eee;
+}
+.modal__close
+{
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    user-select: none;
+}
+.modal__body
+{
+    padding: 10px;
 }
